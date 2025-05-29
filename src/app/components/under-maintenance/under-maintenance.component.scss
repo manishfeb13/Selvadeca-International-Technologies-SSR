@@ -1,0 +1,70 @@
+@use '@angular/material' as mat;
+
+// Customize the entire app. Change :root to your selector if you want to scope the styles.
+
+
+/* Fullscreen container */
+.under-construction-container {
+    min-height: 100vh;
+    padding: 3em 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('/assets/background-webp.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  
+  /* Notify button */
+  .submit-button {
+    background: lightblue;
+    color: black;
+    border: none;
+    padding: 0.75em 1.5em;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+  }
+  
+  .submit-button:hover {
+    background: white;
+  }
+  
+ 
+
+  
+//   ########################################################################################
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+  
+.logo {
+      display: block;
+      width: 13vw; // Adjust as per your image size
+      min-width: 11rem;
+      height: auto;
+      border-radius: 0.5rem; // Rounded corners (optional)
+    }
+
+  .progressBar{
+    margin: 1.5em;
+    width: 60%;
+    border-radius: 1.5em;
+
+    @include mat.progress-bar-overrides((
+        active-indicator-color: lightblue,       
+        track-color: #778293,
+        // #ADD8E6,
+        active-indicator-height: 1.2em,
+        track-height: 1.1em,
+        track-shape: rectangle
+      ));
+    
+  }
+

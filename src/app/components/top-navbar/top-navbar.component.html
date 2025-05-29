@@ -1,0 +1,55 @@
+<mat-toolbar class="toolbar">
+  <div class="container-extended flex">
+    <a [routerLink]="['/']" class="hover-pointer-cursor">
+      <img class="logo divine-highlight" src="assets\selvadeca_svg.svg" alt="">
+    </a>
+    <span class="spacer"></span>
+
+    <div *ngIf="isSmallScreen; else fullStandardMenu">
+      <button mat-icon-button class="menu-button" *ngIf="isSmallScreen" (click)="toggleMenu()" aria-label="Toggle menu">
+        <mat-icon>{{ menuExpanded ? 'close' : 'menu' }}</mat-icon>
+      </button>
+    </div>
+
+    <ng-template #fullStandardMenu>
+      <button mat-button [matMenuTriggerFor]="industries">Industries</button>
+      <button mat-button [matMenuTriggerFor]="technologies">Technologies</button>
+      <button mat-button [matMenuTriggerFor]="products">Products</button>
+    </ng-template>
+  </div>
+</mat-toolbar>
+
+<div *ngIf="isSmallScreen">
+  <mat-expansion-panel [expanded]="menuExpanded" hideToggle>
+    <mat-action-list>
+      <button mat-button [matMenuTriggerFor]="industries">Industries</button>
+      <button mat-button [matMenuTriggerFor]="technologies">Technologies</button>
+      <button mat-button [matMenuTriggerFor]="products">Products</button>
+    </mat-action-list>
+  </mat-expansion-panel>
+</div>
+
+
+
+<div class="menu-lists">
+  <mat-menu #industries="matMenu" yPosition="below">
+    <button mat-menu-item [routerLink]="['/fintech']">FinTech</button>
+    <button mat-menu-item [routerLink]="['/healthcare']">HealthCare</button>
+    <button mat-menu-item [routerLink]="['/manufacturing']">Manufacturing</button>
+    <button mat-menu-item [routerLink]="['/public-services']">Public Services</button>
+  </mat-menu>
+
+  <mat-menu #technologies="matMenu" yPosition="below">
+    <button mat-menu-item [routerLink]="['/low-code']">Low Code, No Code</button>
+    <button mat-menu-item [routerLink]="['/pro-code']">Pro Code</button>
+    <button mat-menu-item [routerLink]="['/generative-ai']">Generative AI</button>
+    <button mat-menu-item [routerLink]="['/ai-ml']">AI and ML</button>
+    <button mat-menu-item [routerLink]="['/cloud-native']">Cloud Native</button>
+  </mat-menu>
+
+  <mat-menu #products="matMenu" yPosition="below">
+    <button mat-menu-item [routerLink]="['/synapforce']">SynapForce</button>
+    <button mat-menu-item [routerLink]="['/synaplex']">SynapLex</button>
+    <button mat-menu-item [routerLink]="['/synaplogix']">SynapLogix</button>
+  </mat-menu>
+</div>

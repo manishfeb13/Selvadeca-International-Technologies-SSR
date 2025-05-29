@@ -1,0 +1,158 @@
+@use '@angular/material' as mat;
+
+// Customize the entire app. Change :root to your selector if you want to scope the styles.
+
+.button-container{
+  margin-bottom: 70px;
+}
+
+
+.text-container{
+  line-height: 5px;
+  
+  p{
+    line-height: 1.7;
+  }
+}
+
+.text-container .division{
+  margin-bottom: 35px;
+}
+
+/* Fullscreen container */
+.under-construction-container {
+    min-height: 100vh;
+    padding: 3em 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('/assets/background-webp.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    // text-align: center;
+    // line-height: 18px;
+    font-family: Arial, sans-serif;
+  }
+  
+  
+  /* Notify button */
+  .buttonClass {
+    background: lightblue;
+    color: black;
+    border: none;
+    padding: 0.75em 1.5em;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+
+    margin: 5px 5px;
+  }
+  
+  .submit-button:hover {
+    background: white;
+  }
+
+
+  .example-card {
+  max-width: 320px;
+  margin: 20px;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.example-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.cards-section{
+  margin-top: 30px;
+}
+
+.cards img{
+  // width: 28vw;
+  height: auto;
+}
+
+.cards{
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: start;
+}
+
+.buttonsSection{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+//Divine highlight or logo highlight effect when hover over it.
+
+.button-divine-highlight {
+    transition: all 0.6s ease-in-out;
+
+    &:hover {
+      filter: brightness(1.1) drop-shadow(0 0 10px rgba(25, 183, 226, 0.5));
+      transform: scale(1.04); // Slightly enlarge the image for emphasis
+    }
+}
+
+.shadow-effect {
+    box-shadow: 5px 5px 12px 2px rgba(0, 0, 0, 0.3);
+
+  }
+  
+ 
+
+  
+//   ########################################################################################
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+  
+.logo {
+      display: block;
+      width: 13vw; // Adjust as per your image size
+      min-width: 11rem;
+      height: auto;
+      border-radius: 0.5rem; // Rounded corners (optional)
+    }
+
+  .progressBar{
+    margin: 1.5em;
+    width: 60%;
+    border-radius: 1.5em;
+
+    @include mat.progress-bar-overrides((
+        active-indicator-color: lightblue,       
+        track-color: #778293,
+        // #ADD8E6,
+        active-indicator-height: 1.2em,
+        track-height: 1.1em,
+        track-shape: rectangle
+      ));
+    
+  }
+
+
+
+
+  // media queries
+
+  /* Tablet view */
+    @media (max-width: 1024px) {
+      .head-section{
+        flex-direction: column;
+      }
+    }
+
+
+

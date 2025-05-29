@@ -1,0 +1,86 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'assets/styles/global_styling.scss' as global_style;
+@use '@angular/material' as mat;
+@use 'assets/styles/_theme-colors.scss' as my-theme; // location of generated file using ng generate @angular/material:theme-color
+
+// Export Primary and Secondary Colors as CSS Variables
+:root {
+  --primary: #006590; //colours retrieved manually for inline html css stlying. From _theme-colors.scss primary palette no 40 color.
+  --primary-onHover: #147199; //Just a colour that looks good.
+}
+
+html {
+  @include mat.theme((
+    color: (
+      primary: my-theme.$primary-palette,
+      tertiary: my-theme.$tertiary-palette,
+    ),
+    typography: Lato,
+  ));
+}
+
+// Export SCSS colors to CSS variables
+// :root {
+//   --primary-color: #{mat-color($my-primary, 500)};
+//   --accent-color: #{mat-color($my-accent, 500)};
+//   --warn-color: #{mat-color($my-warn, 500)};
+//   --primary-light: #{mat-color($my-primary, 300)};
+//   --primary-dark: #{mat-color($my-primary, 700)};
+// }
+
+*{
+  box-sizing: border-box;
+}
+  
+html, body { 
+    height: 100%;
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0px;
+    overflow-x: hidden;
+    // font-family: Lato, Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px; /* Base font size */
+    line-height: 1.5; /* Line spacing */
+    color: #333; /* Default text color */
+}
+
+img{
+  display: block;
+  max-width: 100%;
+}
+
+p{
+    line-height: 2rem;
+}
+
+a {
+    color: #1587da; /* A soft blue */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for hover */
+  }
+  
+  a:hover {
+    color: #0a4f7c; /* Slightly darker blue on hover */
+  }
+
+
+h2{
+    font-size: 1.75rem;
+}
+
+
+/* Media Query for Mobile Screens */
+@media (max-width: 768px) {
+  /* Centering the text on mobile screens */
+  body {
+    text-align: center;
+  }
+  li{
+    list-style-position: inside;
+  }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Montserrat, sans-serif;}

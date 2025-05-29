@@ -1,0 +1,41 @@
+<div class="container margin-10px">
+    <h2>ABOUT THE AUTHOR</h2>
+    <ng-container *ngIf="authorName else loading">
+        <div [ngSwitch]="authorName" class="flex justify-center align-items flex-direction-change-on-mediaQuery">
+            <ng-container *ngSwitchCase="'Adam Khoo'">
+                <img class="author-pic" src="assets\pages\about-the-author\adam-khoo.webp" alt="Adam-Khoo-downloadyourcourse-adamkhoo-download-your-course-piranha-profits-adam-kho-piranhaprofits-downloadyourcourses-download-your-courses">
+            <div class="padding-15px margin-15px text-content">
+                <h3 class="author-name">Adam Khoo</h3>
+                <p>is a professional investor & trader and award-winning financial educator. A self-made millionaire by age 26, he is the founder of the Piranha Profits™ online trading school. As a trusted mentor, Adam has clocked more than 38 million views on his video tutorials. You can search him on youtube Adam Khoo as well as on Adam Khoo reddit. Since 2002, he has touched the lives of over 1.2 million people in more than 124 countries. He is the author of 16 best-selling books that have sold over 500,000 copies worldwide, including Winning the Game of Stocks! and Secrets of Self-Made Millionaires. Follow him on Adam Khoo twitter.</p>
+            </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Alson Chew'">
+                <img class="author-pic" src="assets\pages\about-the-author\alson-chew.webp" alt="Alson-chew-pam-price-action-manipulation-xspy-trader-Adam-Khoo-downloadyourcourse-adamkhoo-download-your-course-piranha-profits-adam-kho-piranhaprofits-downloadyourcourses-download-your-courses">
+            <div class="padding-15px margin-15px text-content">
+                <h3 class="author-name">Alson Chew</h3>
+                <p>Alson Chew is a 7-figure trading mentor and a leading educator at Piranha Profits, one of the top online trading schools.</p>
+                <p>Previously a senior proprietary trader at a well-regarded boutique firm, Alson managed a proprietary fund and earned the firm’s Top Trader Award two years in a row. Thanks to his sharp market insights, he has accumulated over USD 3 million in net trading profits.</p>
+                <p>With a decade of hands-on trading and in-depth research, Alson gained rare insider knowledge of how the market truly operates. This led him to uncover the deceptive tactics used by market makers and develop his signature Price Action Manipulation strategy.</p>
+                <p>Recognized for both his skill and sincerity, Alson has taught his trading techniques to over 4,000 students globally. As a respected financial educator, he has also shared the stage with renowned investment mentor Adam Khoo at major regional wealth seminars.</p>
+            </div>
+            </ng-container>
+
+
+
+
+            <ng-container *ngSwitchDefault>
+            <div class="padding-15px margin-15px text-content">
+                <h3 class="author-name">DownloadYourCourse</h3>
+                <p>is a professional investor & trader and award-winning financial educator. A self-made millionaire by age 26, he is the founder of the Piranha Profits™ online trading school. As a trusted mentor, Adam has clocked more than 38 million views on his video tutorials. You can search him on youtube Adam Khoo as well as on Adam Khoo reddit. Since 2002, he has touched the lives of over 1.2 million people in more than 124 countries. He is the author of 16 best-selling books that have sold over 500,000 copies worldwide, including Winning the Game of Stocks! and Secrets of Self-Made Millionaires. Follow him on Adam Khoo twitter.</p>
+            </div>
+            </ng-container>
+            
+        </div>
+    </ng-container>
+</div>
+
+<!-- Loading Placeholder -->
+<ng-template #loading>
+  <p>Loading Author...</p>
+</ng-template>

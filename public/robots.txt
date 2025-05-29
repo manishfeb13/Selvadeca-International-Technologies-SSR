@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /under-maintenance
+Disallow: /error-page
+Disallow: /login
+Disallow: /dashboard
+Disallow: /build
+Sitemap: https://selvadeca.com/sitemap.xml

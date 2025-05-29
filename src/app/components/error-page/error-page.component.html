@@ -1,0 +1,37 @@
+<div class="container flex align-items justify-center" [ngSwitch]="errorCode">
+    <ng-container *ngSwitchCase="404">
+        <div class="not-found">
+            <h3>404! The page is lost in the digital void!</h3>
+            <p>But don’t worry, we’ll help you find your way back. <br>Let’s go home! &rarr; <a [routerLink]="['/']">HOME</a></p>
+        </div>
+
+        <div class="feedback-img">
+            <img src="/assets/pages/error-page/404 not found.svg" alt="404-not-found">
+        </div>
+    </ng-container>
+    
+
+<ng-container *ngSwitchCase="500">
+<div class="internal-server-error">
+        <h3>500! Our servers are on a coffee break!</h3>
+        <p>Please try again in a moment while we refuel them. Thanks for your patience!</p>
+    </div>
+    
+    <div class="feedback-img">
+        <img src="/assets/pages/error-page/500 Internal server error.svg" alt="500-internal-server-error">
+    </div>
+</ng-container>
+
+
+<ng-container *ngSwitchDefault>
+    <div class="something-went-wrong">
+            <h3>Uh-oh! Something's off-track! Our server got lost in the Matrix.</h3>
+            <p>We’ll send a rescue mission right away! <br>Let’s go home! &rarr; <a [routerLink]="['/']">HOME</a></p>
+        </div>
+        
+        <div class="feedback-img">
+            <img src="/assets/pages/error-page/something went wrong.svg" alt="something-went-wrong">
+        </div>
+    </ng-container>
+
+</div>

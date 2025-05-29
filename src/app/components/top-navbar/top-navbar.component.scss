@@ -1,0 +1,39 @@
+@use '@angular/material' as mat;
+
+
+.toolbar {
+  @include mat.toolbar-overrides((
+    standard-height: 4.5rem,
+    container-background-color: white //var(--mat-sys-primary),
+    // container-text-color: var(--mat-sys-on-primary),
+  ));
+}
+
+.logo{
+    display: block;
+    width: 8.75rem;
+    height: auto;
+    border-radius: 0.25rem;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.spacer {
+    flex: 1 1 auto;
+  }
+
+  a {
+    text-decoration: none; /* Removes underline */
+    color: inherit;        /* Inherits text color from parent element */
+    padding: 0.25rem;
+  }
+
+
+mat-expansion-panel {
+  margin: 0;
+  border: none;
+  box-shadow: none;
+}

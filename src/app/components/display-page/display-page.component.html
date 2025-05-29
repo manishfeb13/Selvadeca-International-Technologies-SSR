@@ -1,0 +1,20 @@
+<ng-container *ngIf="isDynamicHtmlContentLoaded; else skeletonLoadingBlock">
+    <div class="content" [innerHTML]="content"></div>
+    <div class="container flex-column">
+    <app-about-the-author [authorName]="contentAuthorName"></app-about-the-author>
+    </div>
+  </ng-container>
+  
+  <ng-template #skeletonLoadingBlock>
+    <div class="container">
+      <app-skeleton-loader></app-skeleton-loader>
+    </div>
+  </ng-template>
+  
+  
+  <!-- 
+  <div class="container">
+    <app-skeleton-loader></app-skeleton-loader>
+  </div> -->
+  
+  

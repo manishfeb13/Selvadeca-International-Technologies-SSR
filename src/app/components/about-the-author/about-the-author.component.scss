@@ -1,0 +1,31 @@
+.author-pic{
+    width: 30%;
+    height: auto;
+}
+
+.author-name{
+    color:#0077cc ;
+}
+
+@media (max-width: 975px) {
+    .flex-direction-change-on-mediaQuery{
+      flex-direction: column;
+    }
+
+    .author-pic{
+        width: 38%;
+        height: auto;
+    }
+
+    .text-content{
+        margin: 5px;
+        padding: 5px;
+    }
+  }
+
+  @media (max-width: 768px){
+    .author-pic{
+        width: 55%;
+        height: auto;
+    }
+  }

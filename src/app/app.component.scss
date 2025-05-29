@@ -1,0 +1,8 @@
+.router-outlet-container{
+    padding: 0px;
+    margin: 0px;
+    min-height: calc(100vh - 200px); /* Adjust 80px to your footer height */
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+}

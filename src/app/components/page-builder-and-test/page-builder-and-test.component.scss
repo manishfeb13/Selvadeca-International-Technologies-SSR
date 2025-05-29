@@ -1,0 +1,261 @@
+/* :root { */
+       /* --banner-aspect-ratio: calc(282 / 1707);  the banner size is 1707px vs 282px width x height */
+       /* --scale-factor-tablet: 1.3; by how much factor to zoom the image for tablet */
+       /* --translateY-tablet: calc((1 - (1 / 1.3)) / 2 * 100%);  --translateY-tablet: calc((1 - (1 / var(--scale-factor-tablet))) / 2 * 100%); once the image is zoomed, the image shifts upwards (by half of the increase in height). This is to correct the image.  */
+       /* --scale-factor-mobile: 1.78; by how much factor to zoom the image for mobile */
+       /* --translateY-mobile: calc((1 - (1 / 1.78)) / 2 * 100%); calc((1 - (1 / var(--scale-factor-mobile))) / 2 * 100%); */
+     /* } */
+    
+    
+     .video-container {
+      position: relative;
+      height: auto;
+      overflow: hidden;
+      position: relative;
+      width: 100%;               /* Full width of the container */
+      padding-bottom: 56.25%;    /* 16:9 Aspect Ratio (9 / 16 = 0.5625) */
+      height: 0;
+      overflow: hidden;
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;               /* Make iframe fill the container */
+      height: 100%;              /* Maintain aspect ratio */
+      border: 0;                 /* Remove borders */
+    }
+    
+    .highlight-section{
+      position: relative;
+      width: calc(100vw - 17px); /* Adjust width of the container to account for y-axis scrollbar width (16px is an approximate scrollbar width) in order to avoid x-axis scroolbar*/
+      left: 50%; /* positions the child element left edge at 50% mark of the parent element (i.e. left edge of child at mid point of parent) */
+      transform: translateX(-50%); /* it positions the left edge of the child by 50% of its own width (no involvement of parent). It was used before flex box to center a child. But useful here as well. */
+      background-color: #E2F0FF;
+      margin: 20px 0;
+      padding: 50px;
+      box-sizing: border-box; 
+    }
+    
+    .highlight-section li{
+      margin: 10px 0;
+    }
+    
+    .header-image-container {
+      width: 100%; /* Full screen width */
+      height: auto; /* Fixed height for the container */
+      overflow: hidden; /* Ensures the image is cropped if it exceeds the container */
+      overflow-y: hidden; /* Ensures the image is cropped if it exceeds the container */
+      position: relative; /* To allow positioning the image inside the container */
+      width: calc(100vw - 8px); /* Adjust width of the container to account for y-axis scrollbar width (16px is an approximate scrollbar width) in order to avoid x-axis scroolbar*/
+      left: 50%; /* positions the child element left edge at 50% mark of the parent element (i.e. left edge of child at mid point of parent) */
+      transform: translateX(-50%); /* it positions the left edge of the child by 50% of its own width (no involvement of parent). It was used before flex box to center a child. But useful here as well. */
+      box-sizing: border-box;
+      transition: height 0.5s ease; /* Smooth height transition */
+    }
+    
+    .header-image {
+      width: 100%; /* Makes the image fill the container's width */
+      height: auto; /* Makes the image fill the container's height */
+      object-fit: cover; /* Ensures the image covers the container, zooming in and cropping if necessary */
+      object-position: center; /* Keeps the image centered */
+      transition: transform 0.5s ease; /* Smooth zoom transition */
+    }
+    
+    .highlight-csm-image {
+      width: 100%;
+      height: auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    .highlight-csm-image img{
+      max-width:75%;
+      border-radius: 10%;
+    }
+    
+    .csm-image{
+    width: 48%;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      text-decoration: none; /* Remove underline */
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 350;
+      font-family: 'Roboto', sans-serif;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+  
+    .button:hover {
+      background-color: var(--primary-onHover);
+      color: white;
+    }
+
+    .course-curriculam{
+      h2{
+        color: #19B7E2;
+        font-weight:800;
+      }
+      ul {
+        list-style: none; /* Removes bullets */
+        padding-left: 0;  /* Optional: removes default indentation */
+        margin: 0;
+      }
+    }
+
+    .tick-mark{
+      display: inline-block;
+      width: 1rem;
+      height: auto;
+      margin-right: 1rem;
+    }
+
+    .custom-bg-img{
+      background: url('/assets/pages/display/price-action-manipulation-level-2/resources/BG 1-4.webp') no-repeat center center fixed;
+    }
+
+    .text-content-with-custom-bg-img{
+      color: white;
+    }
+
+    .margin-left-3rem-when-normal-0-when-media-query-flex-direction-change-activates{
+      margin-left: 3rem;
+    }
+    
+    @media (max-width: 1125px) {
+    .special-a-tag-how-to-get-the-currency-strength-meter{
+      font-size: 14px;
+    }
+    }
+    
+    /* Tablet view */
+    @media (max-width: 1024px) {
+    
+    .header-image-container {
+      width: 100%; /* Full screen width */
+      height: auto; /* Fixed height for the container */
+      height: calc(100vw * calc(282 / 1707) * 1.3); /* - var(--scale-factor-tablet) = 1.3 Adjust container height dynamically based on image aspect ratio and image scaling factor */
+      overflow: hidden; /* Ensures the image is cropped if it exceeds the container */
+      overflow-y: hidden; /* Ensures the image is cropped if it exceeds the container */
+      position: relative; /* To allow positioning the image inside the container */
+      width: 100vw; /* the div container is inside the main container, to make the width extend (more than 100% of the main container) */
+      left: 50%; /* positions the child element left edge at 50% mark of the parent element (i.e. left edge of child at mid point of parent) */
+      transform: translateX(-50%); /* it positions the left edge of the child by 50% of its own width (no involvement of parent). It was used before flex box to center a child. But useful here as well. */
+      box-sizing: border-box;
+    }
+    
+    .header-image {
+      width: 100vw; /* Makes the image fill the container's width */
+      height: auto; /* Makes the image fill the container's height */
+      object-fit: cover; /* Ensures the image covers the container, zooming in and cropping if necessary */
+      object-position: center center; /* Keeps the image centered */
+      transform: scale(1.3) translateY(calc((1 - (1 / 1.3)) / 2 * 100%)); /* transform: scale(var(--scale-factor-tablet)) translateY(var(--translateY-tablet)); - var(--scale-factor-tablet) = 1.3 Zoom banner on mobile for better visibility */
+      transform-origin: center center;  /* Ensure scaling is done from the center of the image */
+    }
+    
+    .highlight-section{
+      width: 100vw;
+      height: auto;
+    }
+    
+    .flex-direction-change-on-mediaQuery-column-reverse{
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    
+    .flex-direction-change-on-mediaQuery{
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .flex-direction-change-on-mediaQuery img{
+      margin-top: 20px;
+    }
+    
+    
+    .highlight-csm-image img{
+      max-width:20rem;
+      height: auto;
+      border-radius: 10%;
+      }
+    
+    .highlight-section{
+    text-align: center;
+    }
+    
+    .highlight-section li{
+      list-style-position: inside;
+    }
+    
+    .special-a-tag-how-to-get-the-currency-strength-meter{
+      font-size: 16px;
+    }
+
+    .margin-left-3rem-when-normal-0-when-media-query-flex-direction-change-activates{
+      margin-left: 0px;
+    }
+    
+    }
+    
+    
+    /* Mobile view */
+    @media (max-width: 768px) {
+    
+    .header-image-container {
+      width: 100%; /* Full screen width */
+      height: auto; /* Fixed height for the container */
+      height: calc(100vw * calc(282 / 1707) * 1.78); /* calc(100vw * var(--banner-aspect-ratio) * var(--scale-factor-mobile)); - --scale-factor-mobile = 1.78; Adjust container height dynamically based on image aspect ratio and image scaling factor */
+      overflow: hidden; /* Ensures the image is cropped if it exceeds the container */
+      position: relative; /* To allow positioning the image inside the container */
+      width: 100vw; /* the div container is inside the main container, to make the width extend (more than 100% of the main container) */
+      left: 50%; /* positions the child element left edge at 50% mark of the parent element (i.e. left edge of child at mid point of parent) */
+      transform: translateX(-50%); /* it positions the left edge of the child by 50% of its own width (no involvement of parent). It was used before flex box to center a child. But useful here as well. */
+      box-sizing: border-box;
+    }
+    
+    .header-image {
+      width: 100vw; /* Makes the image fill the container's width */
+      height: auto; /* Makes the image fill the container's height */
+      object-fit: cover; /* Ensures the image covers the container, zooming in and cropping if necessary */
+      object-position: center center; /* Keeps the image centered */
+      transform: scale(1.78) translateY(calc((1 - (1 / 1.78)) / 2 * 100%)); /* transform: scale(var(--scale-factor-mobile)) translateY(var(--translateY-mobile)); - --scale-factor-mobile = 1.78 Zoom banner on mobile for better visibility */
+      transform-origin: center center;  /* Ensure scaling is done from the center of the image */
+    }
+    
+    .a-tag-how-to-get-the-currency-strength-meter{
+      font-size: 15px;
+    }
+    
+    .csm-image{
+      width: 60%;
+    }
+    }
+    
+    @media (max-width: 406px) {
+    .a-tag-how-to-get-the-currency-strength-meter{
+      font-size: 14px;
+    }
+    }
+    
+    @media (max-width: 380px) {
+    .a-tag-how-to-get-the-currency-strength-meter{
+      font-size: 13px;
+    }
+    
+    .highlight-csm-image img{
+      max-width:14rem;
+      height: auto;
+      border-radius: 10%;
+      }
+    }

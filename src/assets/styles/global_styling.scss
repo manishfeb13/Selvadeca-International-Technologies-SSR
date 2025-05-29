@@ -1,0 +1,232 @@
+//Responsive content container. It will try to be 90% of the viewport/ screen size. However, at max it will be 1100px and it will stop at this point.
+.container-extended{
+    max-width: 1100px;
+    width: 90%;
+    margin: 0 auto;
+}
+.container {
+    max-width: 925px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+.container-full{
+    width: 100%;
+    margin: 0 auto;
+  }
+
+
+//Flex box properties.
+
+.flex{
+    display: flex;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.justify-space-between{
+    justify-content: space-between;
+}
+.justify-center{
+    justify-content: center;
+}
+
+.justify{
+    justify-content: space-around;
+}
+
+.align-items{
+    align-items: center;
+}
+
+.align-self-center{
+    align-self: center;
+}
+
+.text-align{
+    text-align: center;
+}
+
+//Responsive image Size properties as per the parent container 
+
+.img-size-100 {
+    width: 100%; /* Adjusts to the container's width */
+    height: auto; /* Maintains the aspect ratio */
+  }
+  .img-size-90 {
+    width: 90%; 
+    height: auto;
+  }
+.img-size-80 {
+    width: 80%; 
+    height: auto;
+  }
+.img-size-70 {
+    width: 70%; 
+    height: auto; 
+  }
+.img-size-60 {
+    width: 60%;
+    height: auto; 
+  }
+.img-size-50 {
+    width: 50%; 
+    height: auto; 
+  }
+.img-size-40 {
+    width: 40%; 
+    height: auto; 
+  }
+.img-size-35 {
+    width: 35%; 
+    height: auto;
+  }
+.img-size-30 {
+    width: 30%; 
+    height: auto;
+  }
+.img-size-20 {
+    width: 20%; 
+    height: auto; 
+  }
+.img-size-15 {
+    width: 15%; 
+    height: auto; 
+  }
+.img-size-10 {
+    width: 10%; 
+    height: auto; 
+  }
+
+//Layout Properties
+
+.no-padding{
+    padding: 0px;
+}
+
+.no-margin{
+    margin:0px;
+}
+
+.margin-8px{
+    margin: 8px;
+}
+
+.margin-10px{
+    margin: 10px;
+}
+
+.margin-15px{
+    margin: 15px;
+}
+
+.margin-20px{
+    margin: 20px;
+}
+
+.margin-30px{
+    margin: 30px;
+}
+
+.margin-40px{
+    margin: 40px;
+}
+
+.margin-50px{
+    margin: 50px;
+}
+
+.margin-left-8px{
+    margin-left: 8px;
+}
+
+.margin-left-48px{  // multiples of 8
+    margin-left: 48px;
+}
+
+.margin-right-8px{
+    margin-right: 8px;
+}
+
+//padding
+
+.padding-8px{
+    padding: 8px;
+}
+.padding-10px{
+    padding: 10px;
+}
+.padding-15px{
+    padding: 15px;
+}
+.padding-20px{
+    padding: 20px;
+}
+
+.padding-25px{
+    padding: 25px;
+}
+
+// border radius round borders
+
+.round-borders-16px{
+    border-radius: 16px;
+}
+
+//Font Properties
+
+.s-font-size{
+    font-size: 1em;
+}
+
+.xs-font-size{
+    font-size: .75em;
+}
+
+.xs-font-size-point-85em{
+    font-size: .85em;
+}
+
+
+//General Properties
+
+.hover-pointer-cursor:hover{
+    cursor: pointer;
+}
+
+.primary-color-on-hover:hover{
+    color: #009688;
+}
+
+.hover-light-grey-highlight:hover{
+    background-color: #F8F8F8 
+}
+
+.text-light-grey{
+    color: #AAAAAA;;
+}
+
+
+//Divine highlight or logo highlight effect when hover over it.
+
+.divine-highlight {
+    display: block;
+    transition: all 0.8s ease-in-out;
+
+    &:hover {
+      filter: brightness(1.1) drop-shadow(0 0 10px rgba(25, 183, 226, 0.8));
+      transform: scale(1.03); // Slightly enlarge the image for emphasis
+    }
+}
+
+.shadow-effect {
+    box-shadow: 5px 5px 12px 2px rgba(0, 0, 0, 0.3);
+
+  }
+  

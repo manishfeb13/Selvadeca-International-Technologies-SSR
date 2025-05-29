@@ -1,0 +1,66 @@
+footer{
+    background-color: #2d2d2d; /* Dark gray background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    min-height: 28vh;
+    align-items: center;
+
+}
+
+.risk-disclosure{
+    color: #ffffff; /* White text */
+    font-size: 0.7rem; /* Font size */
+    line-height: 1.6; /* Line height for readability */
+    padding: 1.25rem; /* Space inside the box */
+    
+    
+  }
+
+  .risk-disclosure h3 {
+    font-size: 1rem; /* Slightly larger font for the title */
+    margin-bottom: 0.25rem; /* Space below the title */
+    font-weight: bold; /* Bold 
+    title */
+  }
+
+  .risk-disclosure p {
+    line-height: 1rem;
+  }
+
+  .contact-us{
+    color: #ffffff; /* White text */
+    font-size: 1rem; /* Font size */
+    line-height: 1.6; /* Line height for readability */
+    padding: 1.25rem; /* Space inside the box */
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    //  background-color:  #7a7a7b;
+    background: url('/assets/footer/global-background.svg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .tag-and-region-label{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    height: 33px;
+    color: white;
+    font-size: 0.80rem;
+    background-color: #080630;
+  }
+
+  // this child div was becoming more than the size of its parent div.
+  .custom-edits-to-div{
+    max-width: 100%; // do not consume more space than its parent.
+    max-height: 100%;
+    box-sizing: border-box;
+  }
+
+ // region code encircled with a square
+.square {
+      text-align: center;
+      border: 0.25px solid rgb(255, 255, 255);
+      padding: 0.09em 0.14em 0.09em 0.14em;
+      margin-left: 0.5em;
+    }
+  
