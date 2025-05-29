@@ -8,14 +8,17 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class SeoService {
 
-  defaultSeoTitle: string = 'DownloadYourCourses - Top Premium Trading Courses at Over 95% OFF: Stocks, Forex, Crypto, Options, Investing, & More';
-  defaultSeoDescription: string = 'Explore and download premium trading courses & tools at over 95% OFF — Forex, Stocks, Crypto, PAM, Options & more. Learn from top experts and start mastering the markets today!'
-  defaultSeoAuthors = [{ authorName: 'Download Your Courses', authorType: 'Organization'}, { authorName: 'Download Your Course', authorType: 'Organization'} ]
+  defaultSeoTitle: string = 'Selvadeca Technologies – Scalable AI & Software Solutions for FinTech, Healthcare, and Enterprises';
+  defaultSeoDescription: string = 'Selvadeca International Tech. is a global technology partner specializing in AI-driven product engineering, low-code/no-code platforms, and software consulting. We help FinTech, Healthcare, and Manufacturing companies drive innovation, scale operations, and accelerate growth.';
+  defaultSeoAuthors = [
+  { authorName: 'Selvadeca Technologies', authorType: 'Organization' },
+  { authorName: 'Selvadeca International Technologies', authorType: 'Organization' }
+];
   defaultSeoRobots: string = 'index, follow';
-  defaultSeoSection: string = 'Trading Courses'
-  defaultSocialMediaShareImageUrl: string = 'https://downloadyourcourses.com/assets/downloadyourcourse_logo_svg.svg';
+  defaultSeoSection: string = 'IT Consulting, AI Solutions, Software Services';
+  defaultSocialMediaShareImageUrl: string = 'https://selvadeca.com/assets/selvadeca_svg.svg';
   defaultCanonicalUrl: string | null = null; // will be handled by the canonical function below automatically.
-  BASE_DOWNLOADYOURCOURSES_URL = 'https://downloadyourcourses.com';
+  BASE_WEBSITE_URL = 'https://selvadeca.com/home';
  
 
   constructor(
@@ -94,10 +97,10 @@ export class SeoService {
     // However, this does not happen as in Dom mismatch, angular hydration does not considers link tags like that of canonical. Also, meta tags and link tags are different.
     if(isPlatformServer(this.platformId)){
 
-    let fallbackCanonicalUrl = this.BASE_DOWNLOADYOURCOURSES_URL;
+    let fallbackCanonicalUrl = this.BASE_WEBSITE_URL;
     if(metaData.slug){
       const slugPath = metaData.slug?.startsWith('/') ? metaData.slug : '/' + metaData.slug;
-      fallbackCanonicalUrl = this.BASE_DOWNLOADYOURCOURSES_URL + slugPath;
+      fallbackCanonicalUrl = this.BASE_WEBSITE_URL + slugPath;
     }
     const canonicalToSetinDom = metaData.CanonicalUrl?.trim() || fallbackCanonicalUrl;
 
