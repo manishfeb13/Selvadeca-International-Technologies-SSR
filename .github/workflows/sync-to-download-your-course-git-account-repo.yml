@@ -1,0 +1,71 @@
+# Define the GitHub Actions workflow name
+name: Sync Source Repo to Selvadeca-SSR-AutoSync-Firebase-Deploy Repo
+
+# Trigger this workflow when a push is made to the "main" branch
+on:
+  push:
+    branches:
+      - main  # Runs only when changes are pushed to the main branch
+
+jobs:
+  sync_repo:
+    runs-on: ubuntu-latest  # Run the job on the latest Ubuntu virtual machine
+
+    steps:
+      # Step 1: Checkout the source repository (the repo where this workflow runs)
+      - name: Checkout the main repo
+        uses: actions/checkout@v4  # Fetch the latest code from this repo
+
+      # Step 2: Get commit count and hash from the main repository before cloning the target repo
+      - name: Get main repo commit message, count and hash
+        run: |
+          # Fetch commit count and latest commit hash from the main repo
+          MAIN_COMMIT_COUNT=$(git rev-list --count HEAD)
+          MAIN_COMMIT_HASH=$(git rev-parse --short HEAD)
+          MAIN_COMMIT_MSG=$(git log -1 --pretty=%B)  # Fetch the latest commit message
+
+          # Store these values in environment variable for the next step to avoid loosing them
+          echo "MAIN_COMMIT_COUNT=$MAIN_COMMIT_COUNT" >> $GITHUB_ENV
+          echo "MAIN_COMMIT_HASH=$MAIN_COMMIT_HASH" >> $GITHUB_ENV
+
+          # The commit message can be of multiple lines so needs additional steps
+          echo "MAIN_COMMIT_MSG<<EOF" >> $GITHUB_ENV
+          echo "$MAIN_COMMIT_MSG" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      # Step 3: Push changes to the target repository (DYC-SSR-AutoSync-Firebase-Deploy) 
+      - name: Push changes to DYC-SSR-AutoSync-Firebase-Deploy repo
+        run: |
+          # Configure Git with your email and name (used for commit history)
+          git config --global user.email "downloadyourcourse@gmail.com"
+          git config --global user.name "DownloadYourCourse"
+
+          
+
+          # Clone the target repository where the changes will be pushed where 'dyc-ssr-autosync-firebase-deploy-repo' is the directory name where
+          # it will be cloned. That is inside git workspace directory new directory is created.
+          git clone https://x-access-token:${{ secrets.DOWNLOADYOURCOURSE_GIT_ACCOUNT_PAT }}@github.com/downloadyourcourse/DYC-SSR-AutoSync-Firebase-Deploy.git dyc-ssr-autosync-firebase-deploy-repo
+
+          
+          # Copy all files from the current repository to the target repository. rsync is good for copying and syncing for changes
+          # Delete flag is used to delete files which are present in target directory but not in source directory
+          # Exclude the .git directory to prevent conflicts (from copying and deleting from source)
+          # Exclude dyc-ssr-autosync-firebase-deploy-repo to avoid nesting
+          rsync -av --exclude='.git' --exclude='.github' --exclude='README.md' --exclude='dyc-ssr-autosync-firebase-deploy-repo' --delete ./ dyc-ssr-autosync-firebase-deploy-repo/
+          
+          # Move inside the cloned target repository to commit changes to target repository
+          cd dyc-ssr-autosync-firebase-deploy-repo
+
+          # Stage all changes for commit
+          git add .
+
+          # Commit the changes with a message that includes the parent repo main branch commit count and its commit hash in brackets.
+          # If no changes are detected, avoid error by echoing "No changes to commit"
+          git commit -m "${{ env.MAIN_COMMIT_MSG }} (${{ env.MAIN_COMMIT_HASH }}) - auto-sync from master repo" || echo "No changes to commit"
+
+          # Push the committed changes to the target repository
+          git push https://$DOWNLOADYOURCOURSE_GIT_ACCOUNT_PAT@github.com/downloadyourcourse/Selvadeca-SSR-AutoSync-Firebase-Deploy.git main
+
+    # Define environment variables for authentication
+    env:
+      DOWNLOADYOURCOURSE_GIT_ACCOUNT_PAT: ${{ secrets.DOWNLOADYOURCOURSE_GIT_ACCOUNT_PAT }}
